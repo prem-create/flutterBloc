@@ -17,20 +17,24 @@ part of 'home_bloc_bloc.dart';
 @immutable
 sealed class HomeBlocState {}
 
-abstract class  HomeActionState extends HomeBlocState{}
+abstract class HomeActionState extends HomeBlocState {}
 
 final class HomeBlocInitial extends HomeBlocState {}
 
-class HomeLoadingState extends HomeBlocState{}
+class HomeLoadingState extends HomeBlocState {}
 
-class HomeLoadedSuccessState extends HomeBlocState{
+class HomeLoadedSuccessState extends HomeBlocState {
   final List<ProductDataModel> products;
 
   HomeLoadedSuccessState({required this.products});
 }
 
-class HomeErrorState extends HomeBlocState{}
+class HomeErrorState extends HomeBlocState {}
 
-class HomeNavigateToWishlistPageACtionState extends HomeActionState{}
+class HomeNavigateToWishlistPageACtionState extends HomeActionState {}
 
-class HomeNavigateToCartPageACtionState extends HomeActionState{}
+class HomeNavigateToCartPageACtionState extends HomeActionState {}
+
+class HomeProductItemWishlistedActionState extends HomeActionState {}
+
+class HomeProductItemCartedActionState extends HomeActionState {}
