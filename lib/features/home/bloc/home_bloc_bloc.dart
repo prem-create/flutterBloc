@@ -67,7 +67,8 @@ class HomeBlocBloc extends Bloc<HomeBlocEvent, HomeBlocState> {
     Emitter<HomeBlocState> emit,
   ) {
     print('product Cart Clicked');
-    cartIems.add(event.clickedProduct);
+    cartItems.add(event.clickedProduct);
+    print("cart items count: ${cartItems.length}");
     emit(HomeProductItemCartedActionState());
   }
 

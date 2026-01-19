@@ -29,10 +29,12 @@ class _CartState extends State<Cart> {
         listener: (context, state) {
           switch (state.runtimeType) {
             case cartRemovedActionState:
+            ScaffoldMessenger.of(context).removeCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('item removed'),
                   duration: Duration(seconds: 1),
+                  behavior: SnackBarBehavior.floating,
                 ),
               );
           }

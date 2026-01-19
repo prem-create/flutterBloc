@@ -11,6 +11,7 @@ part 'wishlist_bloc_state.dart';
 class WishlistBlocBloc extends Bloc<WishlistBlocEvent, WishlistBlocState> {
   WishlistBlocBloc() : super(WishlistBlocInitial()) {
     on<WishlistInitialEvent>(wishlistInitialEvent);
+    on<WishlistItemRemovedEvent>(wishlistItemRemoved);
   }
 
   FutureOr<void> wishlistInitialEvent(
@@ -18,5 +19,15 @@ class WishlistBlocBloc extends Bloc<WishlistBlocEvent, WishlistBlocState> {
     Emitter<WishlistBlocState> emit,
   ) {
     emit(WishlistSuccessState(wishlistItems: wishListItems));
+  }
+
+  FutureOr<void> wishlistItemRemoved(
+    WishlistItemRemovedEvent event,
+    Emitter<WishlistBlocState> emit,
+  ) {
+    wishListItems.remove(event.clickedProduct);
+      print("wishlist items count: ${wishListItems.length}");
+    emit(WishlistSuccessState(wishlistItems: wishListItems));
+    emit(WishlistItemRemovedActionState());
   }
 }

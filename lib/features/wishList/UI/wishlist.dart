@@ -27,7 +27,12 @@ class _WishlistState extends State<Wishlist> {
         listenWhen: (previous, current) => current is WishlistBlocActionState,
         buildWhen: (previous, current) => current is! WishlistBlocActionState,
         listener: (context, state) {
-          // TODO: implement listener
+          if (state is WishlistItemRemovedActionState) {
+            ScaffoldMessenger.of(context).removeCurrentSnackBar();
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text('item removed'),duration: Duration(seconds: 1),));
+          }
         },
         builder: (context, state) {
           switch (state.runtimeType) {

@@ -12,3 +12,5 @@ final class WishlistSuccessState extends WishlistBlocState{
 
   WishlistSuccessState({required this.wishlistItems});
 }
+
+class WishlistItemRemovedActionState extends WishlistBlocActionState {}
