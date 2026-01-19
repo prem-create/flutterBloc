@@ -57,6 +57,8 @@ class HomeBlocBloc extends Bloc<HomeBlocEvent, HomeBlocState> {
   ) {
     print('product wishlist Clicked');
     wishListItems.add(event.clickedProduct);
+    print("Wishlist items count: ${wishListItems.length}");
+
     emit(HomeProductItemWishlistedActionState());
   }
 

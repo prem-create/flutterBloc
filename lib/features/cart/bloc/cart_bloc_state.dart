@@ -12,3 +12,5 @@ class CartSuccesState extends CartBlocState {
 
   CartSuccesState({required this.cartItems});
 }
+
+class cartRemovedActionState extends CartActionHomeState{}
